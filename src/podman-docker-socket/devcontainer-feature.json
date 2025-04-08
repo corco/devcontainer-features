@@ -1,0 +1,16 @@
+{
+  "id": "podman-docker-socket",
+  "version": "1.0.0",
+  "name": "Podman docker-socket",
+  "description": "Use a user podman socket as a docker socket inside a container. To be used with docker-outside-docker devcontainer feature.",
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/docker-outside-of-docker"
+  ],
+  "mounts": [
+    {
+      "source": "${localEnv:XDG_RUNTIME_DIR}/podman/podman.sock",
+      "target": "/var/run/docker-host.sock",
+      "type": "bind"
+    }
+  ]
+}
